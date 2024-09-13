@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { MyForm } from "./Theme";
 
 const schema = yup.object({
   userName: yup.string().required(),
@@ -26,7 +27,7 @@ function Form({ setUserName, username }) {
 
   return (
     username || (
-      <form onSubmit={handleSubmit(onSubmit)} className="form">
+      <MyForm onSubmit={handleSubmit(onSubmit)} className="form">
         <h1 style={{ color: "white" }}>LOGIN</h1>
         <input
           style={{ position: "relative" }}
@@ -49,7 +50,7 @@ function Form({ setUserName, username }) {
         <button type="submit" id="submit">
           SIGN IN
         </button>
-      </form>
+      </MyForm>
     )
   );
 }

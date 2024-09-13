@@ -128,3 +128,19 @@ export const MyTypo = styled("span")({
   alignItems: "center",
   fontWeight: "bold",
 });
+
+export const MyForm = styled("form")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "400px",
+  padding: "20px",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  background: "#2a3132",
+  borderRadius: "25px",
+  zIndex: "1",
+});
