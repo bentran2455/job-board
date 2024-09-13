@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, TextField, Container } from "@mui/material";
+import { TextField, Container } from "@mui/material";
 import { MyBackGround, MySubtitle } from "./Theme";
 
 export default function Search({ darkMode, setSearch, search }) {
