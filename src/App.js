@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import JobBoard from "./components/JobBoard";
+import { deepmerge } from "@mui/utils";
+import CssBaseline from "@mui/material/CssBaseline";
+import { UpdateTheme } from "./components/Theme";
 
-function App() {
+export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const themeMode = createTheme({
+    palette: {
+      mode: darkMode ? "dark" : "light",
+    },
+  });
+  const mergedTheme = deepmerge(UpdateTheme, themeMode);
+  const handleSwitch = () => {
+    setDarkMode(!darkMode);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={mergedTheme}>
+      <CssBaseline />
+      <JobBoard handleSwitch={handleSwitch} darkMode={darkMode} />
+    </ThemeProvider>
   );
 }
-
-export default App;
